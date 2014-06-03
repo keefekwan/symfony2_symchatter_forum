@@ -1,3 +1,47 @@
+SymChatter Message Forum 
+========================
+Message forum web application created with Symfony2 for the ongoing joy of practicing and creating new and different web applications. Visual wrapper consisting of Bootstrap, making visually tolerable. :)
+
+Consists of:
+============
+
+3 bundles
+- AdminBundle
+- CoreBundle
+- ModelBundle
+
+AdminBundle:
+- User login and registration code
+- Login controller and views including a Remember Me option
+- Registration controller and views 
+- CRUD controller for CRUD operations
+- CRUD Twig templates 
+
+CoreBundle:
+- View controllers (Author, Category and Post)
+- Twig templates (Author show, Category show and Post index, show templates)
+- Bootstrap CSS
+
+ModelBundle:
+- Data Fixtures (categories, replies, posts and users)
+- Entities (Post, Reply, Category, Timestampable and User)
+- Forms (Post, Reply and Register)
+- Repositories (Post, Reply, Category and User)
+
+Functionality:
+- Navbar for Home, Categories 1-5, Register link and Login/Logout link
+- Selectable categories for corresponding posts
+- +New post option when the user is logged in, segues into the CRUD operations for posts
+- Selectable Post subjects (loads up show page), Users (loads up posts by user) and Replies (brings up show page)
+- Post reply form on the Post show page for entering new replies
+
+
+TBD:
+- Add in a simple title search function
+
+========================
+
+
 Symfony Standard Edition
 ========================
 
