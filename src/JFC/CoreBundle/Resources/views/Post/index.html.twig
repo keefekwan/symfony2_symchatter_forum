@@ -1,0 +1,42 @@
+{# src/JFC/CoreBundle/Resources/views/Post/index.html.twig #}
+{% extends 'JFCCoreBundle::layout.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+
+        {# Flash message for successful post reply #}
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert-message success">
+                {% for msg in app.session.flashBag.get('success') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <h1>SymChatter Message Forum</h1>
+        <br><br>
+
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <p><a href="{{ path('jfc_post_new') }}">+ New post</a></p>
+        {% endif %}
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Subject</th>
+                <th>By</th>
+                <th>Date</th>
+                <th>Replies</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for post in posts %}
+                {{ include('JFCCoreBundle:Post:_post.html.twig', { post: post }) }}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

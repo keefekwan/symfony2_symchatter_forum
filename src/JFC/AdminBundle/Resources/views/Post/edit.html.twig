@@ -1,0 +1,14 @@
+{# src/JFC/CoreBundle/Resources/views/new.html.twig #}
+{% extends 'JFCCoreBundle::layout.html.twig' %}
+
+{% block body -%}
+    {{ parent() }}
+    <div class="container">
+        <a href="{{ path('jfc_post') }}">Back to the edit list</a>
+        <h1>Post edit</h1>
+
+        {{ form(edit_form) }}
+
+        {{ form(delete_form) }}
+    </div>
+{% endblock %}

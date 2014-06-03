@@ -1,0 +1,18 @@
+{# src/JFC/CoreBundle/Resources/views/new.html.twig #}
+{% extends 'JFCCoreBundle::layout.html.twig' %}
+
+{% block body -%}
+    {{ parent() }}
+    <div class="container">
+        <a href="{{ path('jfc_post') }}">Back to the edit list</a>
+        <h2>{{ post.title }}</h2>
+
+        <p>
+            <small>Post by <em>{{ post.author }}</em> on <em>{{ post.createdAt|date }}</em></small>
+        </p>
+        <p>{{ post.body }}</p>
+
+        <a href="{{ path('jfc_post_edit', { 'id': post.id }) }}">Edit</a>
+        {{ form(delete_form) }}
+    </div>
+{% endblock %}

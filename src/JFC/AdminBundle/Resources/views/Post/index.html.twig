@@ -1,0 +1,56 @@
+{# src/JFC/CoreBundle/Resources/views/new.html.twig #}
+{% extends 'JFCCoreBundle::layout.html.twig' %}
+
+{% block body -%}
+    {{ parent() }}
+    <div class="container">
+        <h1>SymChatter Message Forum</h1>
+        <br><br>
+
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <p><a href="{{ path('jfc_post_new') }}">+ New post</a></p>
+        {% endif %}
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Subject</th>
+                <th>By</th>
+                <th>Date</th>
+                <th>Replies</th>
+                <th>Show</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for post in posts %}
+            <tr>
+                <th>
+                    <a href="{{ path('jfc_core_post_show', { slug: post.slug }) }}">{{ post.title | truncate(400) }}</a>
+                </th>
+                <th>
+                    <a href="{{ path('jfc_core_author_show', { author: post.author }) }}">{{ post.author }}</a>
+                </th>
+
+                <th>
+                    {{ post.createdAt|date }}
+                </th>
+
+                <th>
+                    <a href="{{ path('jfc_core_post_show', { slug: post.slug }) }}">{{ post.replies|length }}</a>
+                </th>
+
+                <th>
+                    <a href="{{ path('jfc_post_show', { 'id': post.id }) }}">Show</a>
+                </th>
+
+                <th>
+                    <a href="{{ path('jfc_post_edit', { 'id': post.id }) }}">Edit</a>
+                </th>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

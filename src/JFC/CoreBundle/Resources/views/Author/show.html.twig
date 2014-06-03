@@ -1,0 +1,18 @@
+{# src/JFC/CoreBundle/Resources/views/Author/show.html.twig #}
+{% extends 'JFCCoreBundle::layout.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        {% for post in posts %}
+        <h2><a href="{{ path('jfc_core_post_show', { slug: post.slug }) }}">{{ post.title }}</a></h2>
+
+        <p>
+            <small>Posted by <em>{{ post.author }}</em> on <em>{{ post.createdAt|date }}</em></small>
+        </p>
+        <p>{{ post.body }}</p>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{# src/JFC/CoreBundle/Resources/views/Post/_post.html.twig #}
+<tr>
+    <th>
+        <a href="{{ path('jfc_core_post_show', { slug: post.slug }) }}">{{ post.title | truncate(400) }}</a>
+    </th>
+    <th>
+        <a href="{{ path('jfc_core_author_show', { author: post.author }) }}">{{ post.author }}</a>
+    </th>
+
+    <th>
+        {{ post.createdAt|date }}
+    </th>
+
+    <th>
+        <a href="{{ path('jfc_core_post_show', { slug: post.slug }) }}">{{ post.replies|length }}</a>
+    </th>
+</tr>
